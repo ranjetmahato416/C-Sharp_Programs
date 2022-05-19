@@ -11,7 +11,9 @@ namespace Name
         // ClassExamples();
         // InheritanceExample();
         // PolyMorphismExample();
-        EnumsExample();
+        // EnumsExample();
+        // ShapesExample(); //Interface class Design
+        ShapesExampleV2(); //Abstract Class Design
         
 
      }
@@ -51,6 +53,64 @@ namespace Name
              break;
          }
          Console.WriteLine(day);
+     }
+
+
+     private static void ShapesExample()
+     {
+         Console.Write("Enter the choice\n 1.Square\n 2.Rectangle\n 3.Circle\n");
+         var choice = Convert.ToInt32(Console.ReadLine());
+
+         var shape = ShapeFactory(choice);
+         if(shape == null)
+         {
+             Console.WriteLine("Invalid Choice.");
+             return;
+         }
+
+         shape.GetInput();
+         shape.Area();
+         shape.Perimeter();
+     }
+
+     private static IShape ShapeFactory(int choice)
+     {
+         switch(choice)
+         {
+             case 1: return new Square();
+             case 2: return new Rectangle();
+             case 3: return new Circle();
+             case 4: return new EquilateralTriangle();
+             default : return new EquilateralTriangle();
+         }
+
+     }
+
+     private static void ShapesExampleV2()
+     {
+         Console.WriteLine("Enter the Choice\n1.Square\n2.Rectangle\n");
+         var choice = Convert.ToInt32(Console.ReadLine());
+
+         var shape = AbstractShapeFactory(choice);
+         if(shape == null)
+         {
+             Console.WriteLine("Invalid Choice.");
+             return;
+         }
+
+         shape.GetInput();
+         shape.Area();
+         shape.Perimeter();
+     }
+
+     private static ShapeAbs AbstractShapeFactory(int choice)
+     {
+         switch(choice)
+         {
+             case 1: return new SquareAbs();
+             case 2: return new RectangleAbs();
+             default : return new RectangleAbs();
+         }
      }
 
      private static void InheritanceExample()
