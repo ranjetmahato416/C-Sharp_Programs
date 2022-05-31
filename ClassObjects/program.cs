@@ -13,9 +13,51 @@ namespace Name
         // PolyMorphismExample();
         // EnumsExample();
         // ShapesExample(); //Interface class Design
-        ShapesExampleV2(); //Abstract Class Design
+        // ShapesExampleV2(); //Abstract Class Design
+        // FunctionExamples(); //Types of Functions
+        // ThreadsExample();
+        ExceptionHandlingExample();
         
 
+     }
+
+    public static void ExceptionHandlingExample()
+    {
+        try{
+            Test t1 = new Test();
+            t1.Add(2, 4);
+            Console.WriteLine("Enter a Number.");
+            var num = Convert.ToInt32(Console.ReadLine());
+            t1.Add(num, 5);
+        }
+        catch (Exception err)
+        {
+            Console.WriteLine(err.Message);
+        }
+
+    }
+
+     private static void ThreadsExample()
+     {
+         ParallelProgramming pp = new ParallelProgramming();
+         pp.Run();
+     }
+
+
+     private static void FunctionExamples()
+     {
+         Functions f1 = new Functions();
+         f1.FunctionTwo(1, "");
+         f1.FunctionTwo(b:"", a: 1);
+         f1.FunctionThree(new int[] {1, 2, 3, 4, 5 });
+         f1.FunctionFour(1, 2, 3, 4, 5, 6, 7, 8, 9, 10 );
+         int result = 0;
+         f1.FunctionSix(1, 2, out result);
+         Console.WriteLine(result);
+         f1.FunctionSeven(1, 2, out result);
+         Console.WriteLine(result);
+         f1.FunctionEight(2, 4, ref result);
+         Console.WriteLine(result);
      }
      private static void ClassExamples()
      {
